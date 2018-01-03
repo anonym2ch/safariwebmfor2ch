@@ -2,4 +2,4 @@
 
 2. Установить плагн Tampermonkey (http://tampermonkey.net)
 
-3. 
+3. Нажать для установки скрипта https://github.com/anonym2ch/safariwebmfor2ch/blob/master/SafariWebmFor2ch.user.js
