@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Safari Webm viewer for 2ch.hk
 // @namespace    safari-webm-viewer-for-2ch.hk
-// @version      0.1
+// @version      0.2
 // @description  Thanks for the idea to https://github.com/C9HDN
 // @author       Anonym
 // @match        https://2ch.hk/*
@@ -23,19 +23,24 @@
         return vlc;
     }
 
-    $("a").each(function() {
-        var a = "" + $(this).attr("href");
-         if (a.includes('.webm')){
-             $(this).click(function(){
-                 if($(this).attr('href') !== ''){
-                     var thumb = $(this).parent().find('img');
-                     thumb.hide();
-                     var vlc = createVLC($(this));
-                     thumb.before(vlc);
-                     $(this).attr('href', '');
-                     $('#fullscreen-container').hide();
-                 }
-             });
-         }
+    function wf2ch_setclickfunction(object){
+    	object.click(function(){
+        	if(object.attr('href') !== ''){
+                var thumb = object.parent().find('img');
+                thumb.hide();
+                var vlc = createVLC(object);
+                thumb.before(vlc);
+                object.attr('href', '');
+                $('#fullscreen-container').hide();
+            }
+        });	
+    }
+
+    $('a[href$=".webm"]').each(function() {
+    	wf2ch_setclickfunction($(this));	    
+    });
+
+    $('a[href$=".mp4"]').each(function() {
+    	wf2ch_setclickfunction($(this));	    
     });
 })();
