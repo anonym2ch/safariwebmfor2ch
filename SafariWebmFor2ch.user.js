@@ -40,7 +40,7 @@
                 thumb.before(vlc);
                 $('#fullscreen-container').hide();
 
-                var closeSpan = $("<span class='collapseWebm'>-[<a>close</a>]</span>");
+                var closeSpan = $("<span class='collapseWebm'>-[<a>X</a>]</span>");
                 var closeLink = $("a", closeSpan);
                 thumb.before(closeSpan);
                 closeLink.click(function() {
